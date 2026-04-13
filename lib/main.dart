@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:audioplayers/audioplayers.dart';
+
 import 'database/database.dart';
 import 'managers/scan_manager.dart';
 import 'managers/api_client.dart';
@@ -58,7 +58,6 @@ class _ScanScreenState extends State<ScanScreen> {
   int _lastRssi = 0;
   int _totalTags = 0;
   StreamSubscription? _scanSubscription;
-  late AudioPlayer _audioPlayer;
 
   final List<String> _scanModes = ['continuous', 'single', 'timed'];
   final Map<String, String> _modeLabels = {
@@ -70,7 +69,6 @@ class _ScanScreenState extends State<ScanScreen> {
   @override
   void initState() {
     super.initState();
-    _audioPlayer = AudioPlayer();
   }
 
   Future<void> _playScanSound() async {
@@ -260,7 +258,6 @@ class _ScanScreenState extends State<ScanScreen> {
   @override
   void dispose() {
     _scanSubscription?.cancel();
-    _audioPlayer.dispose();
     super.dispose();
   }
 
