@@ -1,0 +1,6 @@
+-keep class com.ubx.**{*;}
+-keep class com.rfid.**{*;}
+-keep class com.rfiddevice.**{*;}
+-keep class android.device.**{*;}
+-keep class android.content.**{*;}
+-keep class android.os.**{*;}
